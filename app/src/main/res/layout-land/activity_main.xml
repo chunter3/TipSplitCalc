@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/BillTotalWithTax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bill_total_with_tax"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#808080"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <TextView
+        android:id="@+id/TipPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tip_percent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#808080"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.234" />
+
+    <RadioGroup
+        android:id="@+id/SelectTipPercent"
+        android:layout_width="341dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436">
+
+        <RadioButton
+            android:id="@+id/twelve_percent_tip"
+            android:layout_width="80dp"
+            android:layout_height="55dp"
+            android:buttonTint="@color/purple_500"
+            android:onClick="displayTipAndTotal"
+            android:tag="0.12"
+            android:text="@string/_12"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/fifteen_percent_tip"
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/purple_500"
+            android:onClick="displayTipAndTotal"
+            android:tag="0.15"
+            android:text="@string/_15"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/eighteen_percent_tip"
+            android:layout_width="76dp"
+            android:layout_height="64dp"
+            android:buttonTint="@color/purple_500"
+            android:onClick="displayTipAndTotal"
+            android:tag="0.18"
+            android:text="@string/_18"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/twenty_percent_tip"
+            android:layout_width="77dp"
+            android:layout_height="53dp"
+            android:buttonTint="@color/purple_500"
+            android:onClick="displayTipAndTotal"
+            android:tag="0.20"
+            android:text="@string/_20"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tip_amount"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#808080"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.602" />
+
+    <TextView
+        android:id="@+id/TotalWithTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_with_tip"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#808080"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.802" />
+
+    <TextView
+        android:id="@+id/NumOfPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/number_of_people"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#808080"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.723"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <TextView
+        android:id="@+id/TotalPerPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_per_person"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#808080"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.514" />
+
+    <EditText
+        android:id="@+id/DecimalBillTotal"
+        android:layout_width="154dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="12dp"
+        android:background="#d6fdd6"
+        android:ems="10"
+        android:hint="@string/enter_bill_total"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/DecimalTipAmount"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="180dp"
+        android:background="#ECECEC"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/TipAmount"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/DecimalTotalWithTip"
+        android:layout_width="134dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="236dp"
+        android:background="#ECECEC"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/TotalWithTip"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/IntNumOfPeople"
+        android:layout_width="108dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="272dp"
+        android:background="#d6fdd6"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/DecimalTotalPerPerson"
+        android:layout_width="117dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="136dp"
+        android:background="#ECECEC"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/calcTotalPerPerson"
+        android:layout_width="98dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="224dp"
+        android:onClick="displayTotalPerPerson"
+        android:text="@string/go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/Clear"
+        android:layout_width="689dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="clear"
+        android:text="@string/clear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="1dp"
+        android:layout_height="215dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.362" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
